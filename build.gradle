@@ -1,0 +1,41 @@
+apply plugin: 'java'
+
+group = "jetbrains.buildServer.tinywebhook"
+version = "1.0.0"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "http://download.jetbrains.com/teamcity-repository"
+    }
+}
+
+jar {
+    archiveName 'tiny-webhook.jar'
+    into('META-INF') {
+        from 'build-server-plugin-tinywebhook.xml'
+    }
+}
+
+configurations.all {
+    exclude group: "commons-logging", module: "commons-logging"
+    exclude group: "org.hamcrest"
+    exclude group: "junit"
+}
+
+dependencies {
+    compileOnly 'org.jetbrains.teamcity:server-api:10.0.5'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+}
+
+task packageTeamCity(type: Zip) {
+    archiveName 'tiny-webhook.zip'
+    from 'teamcity-plugin.xml'
+    into('server') {
+        from configurations.runtime
+        from 'build/libs/tiny-webhook.jar'
+    }
+}
+
+packageTeamCity.dependsOn jar

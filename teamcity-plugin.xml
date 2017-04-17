@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:shemas-jetbrains-com:teamcity-plugin-v1-xml">
+  <info>
+    <name>tiny-webhook</name>
+    <display-name>Tiny Webhook</display-name>
+    <version>1.0.0</version>
+    <description>Send an HTTP webhook for each finished build</description>
+
+    <vendor>
+      <name>Carl Byström</name>
+      <url>http://github.com/cgbystrom/teamcity-tiny-webhook</url>
+    </vendor>
+  </info>
+</teamcity-plugin>
