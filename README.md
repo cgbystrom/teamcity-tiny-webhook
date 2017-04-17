@@ -7,6 +7,7 @@ I tried patching one of them but got fed up with how overdesigned they were (+10
 # Installing
 
  1. Download and place the .zip file to `<TeamCity data directory>/plugins`.
+    The latest version can be downloaded from https://github.com/cgbystrom/teamcity-tiny-webhook/releases.
  2. Edit `<TeamCity data directory>/config/main-config.xml` and add:
  ```
  <tiny-webhook>
